@@ -1,5 +1,23 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Hola Contador</h1>
+<br><br><br><br><br>
+<div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title">Contador</h5>
+        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        {% if contador > 0 %}
+        <h1 class="text-success">{{ contador }}</h1>
+        {% elif contador < 0 %}
+        <h1 class="text-danger">{{ contador }}</h1>
+        {% else %}
+        <h1 class="text-secondary">{{ contador }}</h1>
+        {% endif %}
+
+        <button onclick="window.location.href='{{ url_for( 'restar') }}';" type="button" class="btn btn-outline-danger">Decrementar</button>
+        <button onclick="window.location.href='{{ url_for( 'reset') }}';" type="button" class="btn btn-outline-secondary">Resetear</button>
+        <button onclick="window.location.href='{{ url_for( 'sumar') }}';" type="button" class="btn btn-outline-success">Incrementar</button>
+    </div>
+</div>
+
 {% endblock %}
